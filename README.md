@@ -60,7 +60,7 @@ server
 
 < Zabbix Server 설정 >
 
-- 패키지 및 구성요소 준비 -
+- 패키지 및 구성요소 준비
 1. HTTP, DB 패키지 설치
 [root@server ~]# yum -y install httpd mariadb mariadb-devel mariadb-server
 
@@ -201,7 +201,7 @@ Zabbix server 상태에 초록불이 들어오면 서버 환경 구성 완료
 
 < Zabbix 호스트 등록 및 그룹생성 >
 
-- 그룹 생성 -
+- 그룹 생성
 Zabbix 관리페이지로 이동 ->
 
 1. 설정 -> 호스트 그룹 -> 호스트 그룹 작성
@@ -214,7 +214,7 @@ agent - agent - test - 0.0.0.0
 3. 템플릿 탭 ->
 Link new templeates - 선택 - Templates/Operating systems - Template OS Linux by Zabbix agent active 체크 - 선택 - 추가
 
-- 모니터링 확인 -
+- 모니터링 확인
 
 Agent 연결 확인 ->
 
