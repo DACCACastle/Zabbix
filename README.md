@@ -1,26 +1,27 @@
 # Zabbix
 
+사용 이유 등 설명
 https://www.sios-apac.com/ko/2021/01/%EC%97%AC%EC%A0%84%ED%9E%88-zabbix-in-aws%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC%ED%95%A9%EB%8B%88%EB%8B%A4/
-: 사용 이유 등 설명
 
+자빅스 centos 설치 ( aws )
 https://honglab.tistory.com/66?category=953819
-: 자빅스 centos 설치 ( aws )
 
+2
 https://velog.io/@seunghyeon/Zabbix-Zabbix-Server-%EC%84%A4%EC%B9%98
-: 2
 
+3
 https://steven-life-1991.tistory.com/35
-: 3
 
+4
 https://usheep91.tistory.com/25
-: 4
 
+5
 https://cloudest.oopy.io/posting/003
-: 5
 
+Linux 설치
 https://getmovie.tistory.com/entry/%EB%A6%AC%EB%88%85%EC%8A%A4-CentOS7%EC%97%90-%EC%9E%90%EB%B9%85%EC%8A%A4-%EC%84%A4%EC%B9%98-2
-: 리눅스에 설치
 
+***
 
 < Zabbix Server & Agent 공통 설정 > ( Passive 방식 )
 
@@ -55,6 +56,7 @@ server
 
 * Agent 서버도 동일하게 구성
 
+***
 
 < Zabbix Server 설정 >
 
@@ -86,7 +88,10 @@ server
 [root@server ~]# firewall-cmd --zone=public --add-port=3306/tcp --permanent
 [root@server ~]# firewall-cmd --reload
 
-- DB 설정 -
+***
+
+< DB 설정 >
+
 1. MariaDB 기본 설정
 [root@server ~]# mysql_secure_installation
 
@@ -142,7 +147,9 @@ Enter password: (dacastle)
 
 [root@server ~]# systemctl status zabbix-server [ 정상적으로 active로 동작함 ]
 
-- Zabbix 구동 확인 -
+***
+
+< Zabbix 구동 확인 >
 [서버IP or 호스트네임]/zabbix 경로로 접속
 Next -> Next -> MySQL, localhost, 0, zabbix, centos, zabbix -> 최종확인
 
@@ -155,6 +162,7 @@ Next -> Next -> MySQL, localhost, 0, zabbix, centos, zabbix -> 최종확인
 모니터링 -> 호스트
 Zabbix server 상태에 초록불이 들어오면 서버 환경 구성 완료
 
+***
 
 < Zabbix Agent 설정 >
 
@@ -188,6 +196,8 @@ Zabbix server 상태에 초록불이 들어오면 서버 환경 구성 완료
 [root@agent ~]# init 6
 
 [root@agent ~]# systemctl status zabbix-agent [ 정상적으로 active로 동작함 ]
+
+***
 
 < Zabbix 호스트 등록 및 그룹생성 >
 
