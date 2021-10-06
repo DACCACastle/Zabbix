@@ -1,21 +1,21 @@
 # Zabbix
 
-사용 이유 등 설명
+>사용 이유 등 설명
 https://www.sios-apac.com/ko/2021/01/%EC%97%AC%EC%A0%84%ED%9E%88-zabbix-in-aws%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC%ED%95%A9%EB%8B%88%EB%8B%A4/
 
-자빅스 centos 설치 ( aws )
+>자빅스 centos 설치 ( aws )
 https://honglab.tistory.com/66?category=953819
 
-2
+>2
 https://velog.io/@seunghyeon/Zabbix-Zabbix-Server-%EC%84%A4%EC%B9%98
 
-3
+>3
 https://steven-life-1991.tistory.com/35
 
-4
+>4
 https://usheep91.tistory.com/25
 
-5
+>5
 https://cloudest.oopy.io/posting/003
 
 Linux 설치
