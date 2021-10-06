@@ -1,0 +1,31 @@
+#!/bin/bash
+sudo yum -y update
+
+#Install apache php
+sudo yum -y install httpd*
+sudo yum -y install git
+sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
+#Set Environment
+#sed -i 's/;date.timezone =/date.timezone = Asia/Seoul/g' /etc/php/7.2/apache2/php.ini
+#sed -i 's/;date.timezone =/date.timezone = Asia/Seoul/g' /etc/php/7.2/cli/php.ini
+#sed -i 's/short_open_tag = Off/short_open_tag = On/g' /etc/php/7.2/apache2/php.inised -i 's/short_open_tag = Off/short_open_tag = On/g' /etc/php/7.2/cli/php.ini
+sudo systemctl start httpd
+sudo systemctl enable httpd
+#Download Source Code 
+sudo chown 755 /var/www
+#unzip basic_php7.zip -d /var/www/html#sed -i 's/>Security Solution/>Web Server1/g' /var/www/html/basic/index.php
+sudo git clone -b web_final https://github.com/DACCACastle/html
+sudo mv ./html /var/www
+sudo chmod 0777 /var/www/html/
+#Set DB Connection#Change string DBURL to Database Private DNS Endpoint
+
+sed -i 's/dbaddress/dacca.cjak8ircfsxu.ap-northeast-2.rds.amazonaws.com/g' /var/www/html/php/db_con.php
+sudo systemctl restart httpd
+
+sudo yum -y install http://repo.zabbix.com/zabbix/4.2/rhel/7/x86_64/zabbix-release-4.2-1.el7.noarch.rpm
+sudo yum -y install zabbix-agent
+sudo sed -i 's/Server=127.0.0.1/Server=3.34.138.121/g' /etc/zabbix/zabbix_agentd.conf
+sudo sed -i 's/ServerActive=127.0.0.1/ServerActive=3.34.138.121/g' /etc/zabbix/zabbix_agentd.conf
+sudo sed -i 's/Hostname=Zabbix server/Hostname=Zabbix Client/g' /etc/zabbix/zabbix_agentd.conf
+sudo systemctl start zabbix-agent
+sudo systemctl enable zabbix-agent
